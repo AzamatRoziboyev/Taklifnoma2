@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Qizlar bazmi — Nafisa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style (2).css">
+</head>
+<body class="locked">
+
+  <!-- Dekorativ fon: gullar va zarrachalar -->
+  <div id="fx" aria-hidden="true"></div>
+
+  <!-- Konvert -->
+  <section id="intro">
+    <div class="envelope" id="envelope">
+      <div class="env-back"></div>
+      <div class="env-letter"><span>♡</span></div>
+      <div class="env-gold"></div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">♡</div>
+    </div>
+    <button id="openBtn" class="btn">Taklifnomani ochish</button>
+  </section>
+
+  <!-- Musiqa tugmasi -->
+  <button id="musicBtn" class="music" aria-label="Musiqani yoqish yoki o'chirish" hidden>🔊</button>
+  <audio id="bgm" src="assets/music/music.mp3" loop preload="auto"></audio>
+
+  <!-- Taklifnoma -->
+  <main id="card" class="card" hidden>
+    <div class="card-inner">
+      <!-- Burchak bezaklari: gullar va yaproqlar -->
+      <span class="corner tl">🌹</span><span class="corner tr">🌿</span>
+      <span class="corner bl">🌿</span><span class="corner br">🌹</span>
+
+      <header class="reveal">
+        <p class="ornament">♡ ❦ ♡</p>
+        <h1 class="title">QIZLAR BAZMI</h1>
+        <div class="line"><i></i><b>✦</b><i></i></div>
+      </header>
+
+      <section class="reveal text">
+        <p>Aziz san’atdoshim!</p>
+        <p>Sizni o‘zim uchun juda muhim bo‘lgan<br><strong>Qizlar bazmimga</strong> taklif etaman.</p>
+        <p>Sizning tashrifingiz ushbu go‘zal kunni<br>yanada quvonchli va unutilmas qiladi!</p>
+        <h2 class="name">Nafisa</h2>
+      </section>
+
+      <!-- SANA va VAQT: shu yerdagi matnlarni o'zgartiring -->
+      <section class="reveal when">
+        <div class="date-box">
+          <span class="ico">📅</span>
+          <strong id="eventDate">19 OKTABR 2026</strong>
+        </div>
+        <div class="time-box">
+          <span class="ico">⏰</span>
+          <small>Boshlanish vaqti:</small>
+          <strong id="eventTime">18:00</strong>
+        </div>
+      </section>
+
+
+      <!-- Bazmgacha qolgan vaqt (sanani script.js dagi EVENT_START da o'zgartiring) -->
+      <section class="reveal countdown" id="countdown">
+        <h3>Bazmgacha qoldi</h3>
+        <div class="cd-row">
+          <div><b id="cdD">0</b><span>kun</span></div>
+          <div><b id="cdH">0</b><span>soat</span></div>
+          <div><b id="cdM">0</b><span>daqiqa</span></div>
+          <div><b id="cdS">0</b><span>soniya</span></div>
+        </div>
+      </section>
+
+      <!-- MANZIL -->
+      <section class="reveal place">
+        <h3>Tadbir manzili</h3>
+        <p class="addr">📍 Xorazim, Harorasp, Muxomondaki</p>
+        <p class="venue">JALILBEK TOYXONASI</p>
+
+        <!-- Xarita rasmi: assets/images/location.jpg -->
+        <figure class="map">
+          <img src="assets/img/ChatGPT Image Sep 30, 2026, 04_24_47 PM.png" alt="Toyxona joylashuvi xaritasi"
+               onerror="this.parentElement.classList.add('empty');this.remove()">
+          <span class="map-pin">📍</span>
+          <figcaption>Xarita rasmi: <code>assets/images/location.jpg</code></figcaption>
+        </figure>
+
+        <!-- Xaritada ko'rish: Yandex Maps. Aniq joy havolasi bo'lsa, href ni almashtiring -->
+        <a class="btn btn-map" target="_blank" rel="noopener"
+           href="https://yandex.com/maps/?text=Jalilbek+toyxonasi+Xorazm+Xazorasp">Xaritada ko‘rish</a>
+      </section>
+
+      <p class="reveal ornament foot">♡ Sizni kutib qolamiz ♡</p>
+    </div>
+  </main>
+
+  <script src="/assets/js/script (2).js"></script>
+</body>
+</html>
