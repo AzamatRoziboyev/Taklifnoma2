@@ -481,17 +481,16 @@ a {
 /* =========================
    MANZIL
 ========================= */
-
+.venue-image {
+  display: flex;
+  justify-content: center;
+}
 .venue-image img {
   width: 340px;
   height: 300px;
-
-  display: block;
-
+  display: flex;
   object-fit: cover;
-
-  margin: 0 auto 15px;
-
+  margin: 50px auto 15px;
   border-radius: 12px;
 }
 
