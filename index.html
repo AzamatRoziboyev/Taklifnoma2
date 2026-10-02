@@ -3,115 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taklifnoma — Axrorbek & Nafisaxon</title>
+
+  <title>Qizlar bazmi — Nafisaxon</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <link rel="stylesheet" href="/assets/css/style (2).css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
 
-  <!-- Musiqa manbasi -->
+  <!-- Musiqa -->
   <audio id="bgMusic" loop>
-    <source src="/Bolalar Kel yashaylik biz birga (1).mp3" type="audio/mpeg">
+    <source src="Bolalar Kel yashaylik biz birga (1).mp3" type="audio/mpeg">
   </audio>
 
-  <div class="container">
-    
-    <!-- 1. KONVERT EKRANI -->
-    <div id="envelope-screen" class="screen">
-      <div class="lang-switch">
-        <span class="active">UZ</span> <span>EN</span> <span>RU</span>
-      </div>
-      <div class="envelope">
-        <div class="lace-border"></div>
-        <div class="seal" onclick="openEnvelope()">
-          <span class="seal-icon"><img src="/assets/img/Без названия (1).png" alt=""></span>
+
+  <!-- KONVERT -->
+  <section id="envelope-screen">
+
+    <div class="envelope-content">
+
+      <h1>Taklifnoma</h1>
+
+      <p>QIZLAR BAZMIGA TAKLIF ETAMIZ</p>
+
+      <div class="envelope" onclick="openEnvelope()">
+
+        <div class="seal">
+          <i class="fa-solid fa-heart"></i>
         </div>
-        <p class="tap-text">OCHISH UCHUN BOSING</p>
-      </div>
-    </div>
 
-    <!-- 2. ASOSIY TAKLIFNOMA EKRANI -->
-    <div id="main-screen" class="screen hidden">
-      
-      <!-- Musiqa tugmasi (pauza/play) -->
-      <button id="musicToggleBtn" class="music-control-btn" onclick="toggleMusic()">⏸</button>
-
-      <!-- Muqova -->
-      <div class="hero-section">
-        <h1 class="names">Axror<br>&<br>Nafisa</h1>
-        <p class="scroll-down">PASTGA SURING <span>↓</span></p>
       </div>
 
-      <!-- Sana bo'limi -->
-      <div class="card-section">
-        <p class="sub-title">Davom etish uchun barcha daftarlarni oching</p>
-        <h2>Sanani oching</h2>
-        <p class="small-note">SANANI BILISH UCHUN QIRING</p>
-        
-        <div class="scratch-coins">
-          <button class="coin" onclick="revealDate(1)">✦</button>
-          <button class="coin" onclick="revealDate(2)">✦</button>
-          <button class="coin" onclick="revealDate(3)">✦</button>
-        </div>
-
-        <div id="revealed-date" class="date-display hidden">
-          <div class="date-box"><span>20</span><span>Oktabr</span><span>2026</span></div>
-          <h3>SESHANBA<br>20 OKTABR 2026</h3>
-        </div>
-      </div>
-
-      <!-- Taklif matni -->
-      <div class="card-section message-card">
-        <h2>Aziz yaqinlarimiz!</h2>
-        <p>Sizni oilaviy baxtimiz boshlanadigan eng quvonchli kunimizda biz bilan birga bo'lishga taklif etamiz. Sizning tashrifingiz bu kunni yanada unutilmas qiladi.</p>
-      </div>
-
-      <!-- Qachon va qayerda -->
-      <div class="card-section">
-        <h2>Qachon va qayerda</h2>
-        <div class="venue-image">
-          <div class="hall-illustration"><img src="/ChatGPT Image Sep 30, 2026, 04_24_47 PM.png" alt=""></div>
-        </div>
-        <h3 class="hall-title">JALILBEK TO'YXONASI</h3>
-        <p class="location-text">Xorazm v., Hazorasp tumani, Muxomon MFY</p>
-        <p class="time-text">18:00</p>
-
-        <div class="map-buttons">
-          <a href="https://yandex.uz/maps/org/jalilbek_to_yxona/105324835948/" target="_blank" class="btn-map">Yandex Xaritalar</a>
-          <!-- <a href="https://www.google.com/maps/search/Jalilbek+toyxonasi+Hazorasp" target="_blank" class="btn-map">Google Xaritalar</a> -->
-        </div>
-      </div>
-
-      <!-- To'yona bo'limi -->
-      <!-- <div class="card-section toyona-card">
-        <h2>To'yona</h2>
-        <p>Agar istasangiz, to'yonani kuyov kartasiga yuborishingiz mumkin:</p>
-        
-        <div class="card-info">
-          <p class="label">QABUL QILUVCHI</p>
-          <p class="val">D.Axrorbek</p>
-          <p class="label">KARTA RAQAMI</p>
-          <p class="card-number" id="cardNumber">9860 1606 4728 7475</p>
-          <button class="btn-copy" onclick="copyCard()">RAQAMNI NUSXALASH</button>
-        </div>
-      </div> -->
-
-      <!-- Taymer -->
-      <div class="card-section timer-section">
-        <h2>To'yimizgacha</h2>
-        <div class="timer">
-          <div class="time-box"><span id="days">00</span><p>KUN</p></div>
-          <div class="time-box"><span id="hours">00</span><p>SOAT</p></div>
-          <div class="time-box"><span id="minutes">00</span><p>DAQIQA</p></div>
-          <div class="time-box"><span id="seconds">00</span><p>SONIYA</p></div>
-        </div>
+      <div class="open-text">
+        OCHISH UCHUN BOSING
       </div>
 
     </div>
 
-  </div>
+  </section>
+
+
+  <!-- ASOSIY SAHIFA -->
+  <main id="main-screen" class="hidden">
+
+    <!-- Musiqa tugmasi -->
+    <button
+      id="musicToggleBtn"
+      class="music-button"
+      onclick="toggleMusic()">
+      ▶
+    </button>
+
+
+    <!-- HERO -->
+    <section class="hero-section">
+
+      <div class="hero-content">
+
+        <p class="small-title">
+          SIZNI QIZLAR BAZMIGA TAKLIF QILAMIZ
+        </p>
+
+        <h1 class="names">
+          Nafisa
+          <span>Qizlar bazmi</span>
+        </h1>
+
+      </div>
+
+      <div class="scroll-text">
+        PASTGA SURING ↓
+      </div>
+
+    </section>
+
+
+    <!-- TAKLIF -->
+    <div class="card-section message-card">
+
+      <h2>Aziz dugonalarimiz!</h2>
+
+      <p>
+        Sizni biz uchun unutilmas va quvonchli kunlardan biri —
+        <b>Qizlar bazmimizga</b> taklif qilamiz!
+        Ushbu go‘zal oqshomni birgalikda kulgu,
+        xursandchilik va chiroyli xotiralar bilan o'tkazamiz.
+      </p>
+
+    </div>
+
+
+    <!-- SANA -->
+    <div class="card-section">
+
+      <p class="sub-title">
+        Qizlar bazmimiz sanasini bilish uchun oching
+      </p>
+
+      <h2>Sanani oching</h2>
+
+      <p class="small-note">
+        SANANI BILISH UCHUN TANGALARNI OCHING
+      </p>
+
+      <div class="scratch-coins">
+
+        <button class="coin" onclick="revealDate(1)">✦</button>
+
+        <button class="coin" onclick="revealDate(2)">✦</button>
+
+        <button class="coin" onclick="revealDate(3)">✦</button>
+
+      </div>
+
+
+      <div id="revealed-date" class="date-display hidden">
+
+        <div class="date-box">
+
+          <span>19</span>
+          <span>Oktabr</span>
+          <span>2026</span>
+
+        </div>
+
+        <h3>
+          DUSHANBA<br>
+          19 OKTABR 2026
+        </h3>
+
+      </div>
+
+    </div>
+
+
+    <!-- MANZIL -->
+    <div class="card-section">
+
+      <h2>Manzil</h2>
+
+      <div class="venue-image">
+
+        <img
+          src="/assets/img/ChatGPT Image Sep 30, 2026, 04_24_47 PM.png"
+          alt="Jalilbek to'yxonasi">
+
+      </div>
+
+      <p class="venue-name">
+        JALILBEK TO'YXONASI
+      </p>
+
+      <p class="venue-info">
+        <i class="fa-solid fa-location-dot"></i>
+        Xorazm v., Hazorasp tumani, Muxomon MFY
+      </p>
+
+      <p class="venue-info">
+        <i class="fa-regular fa-clock"></i>
+        18:00
+      </p>
+
+      <a
+        class="btn-map"
+        target="_blank"
+        rel="noopener"
+        href="https://yandex.uz/maps/org/jalilbek_to_yxona/105324835948/">
+
+        <i class="fa-solid fa-map-location-dot"></i>
+        Xaritada ko‘rish
+
+      </a>
+
+    </div>
+
+
+    <!-- TAYMER -->
+    <div class="card-section">
+
+      <h2>Qolgan vaqt</h2>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>KUN</small>
+        </div>
+
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>SOAT</small>
+        </div>
+
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>DAQIQA</small>
+        </div>
+
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>SONIYA</small>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+      <div class="heart">♡</div>
+
+      <p>Sizni kutib qolamiz!</p>
+
+    </footer>
+
+  </main>
+
 
   <script src="/assets/js/script (2).js"></script>
+
 </body>
 </html>

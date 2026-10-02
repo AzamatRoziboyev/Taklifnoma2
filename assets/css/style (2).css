@@ -2,264 +2,637 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #f4ece1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.container {
-  width: 100%;
-  max-width: 420px;
-  background: #fdfbf7;
-  min-height: 100vh;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  background: #f4ece1;
+  color: #3b2d25;
   overflow-x: hidden;
-
 }
 
-.screen {
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  padding: 10px
+button,
+a {
+  font-family: inherit;
 }
 
 .hidden {
   display: none !important;
 }
 
-/* Musiqa boshqaruv tugmasi */
-.music-control-btn {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #d4c3b0;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 14px;
-  cursor: pointer;
+
+/* =========================
+   KONVERT
+========================= */
+
+#envelope-screen {
+  min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      rgba(35, 20, 10, .35),
+      rgba(35, 20, 10, .35)
+    ),
+    url("photo_2026-09-09_14-04-54.jpg")
+    center / cover no-repeat;
 }
 
-/* Lang Switch */
-.lang-switch {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  font-size: 12px;
-  color: #777;
+.envelope-content {
+  width: 100%;
+  max-width: 420px;
+
+  text-align: center;
+
+  padding: 35px 20px;
+
+  border-radius: 25px;
+
+  background: rgba(255, 248, 238, .92);
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, .25);
 }
 
-.lang-switch .active {
-  font-weight: bold;
-  border-bottom: 1px solid #333;
-}
-
-/* Envelope Screen */
-.envelope {
-  margin-top: 100px;
-  background: #f1e4d3;
-  border: 1px solid #d4c3b0;
-  border-radius: 12px;
-  padding: 60px 20px;
-  position: relative;
-}
-
-.seal {
-  width: 70px;
-  height: 70px;
-  background: #b5a48b;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
-}
-.seal .seal-icon {
-  margin: auto;
-  font-size: 50px;
-}
-.seal .seal-icon img {
-  width: 70px;
-  height: 70px;
-  margin: auto;
-}
-
-.seal:hover {
-  transform: scale(1.05);
-}
-
-.tap-text {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #666;
-}
-
-/* Hero Section */
-.hero-section {
-  height: 400px;
-  padding: 60px 0;
-  background: url('/photo_2026-09-09_14-04-54.jpg') center/cover;
-  border-radius: 16px;
-  color: white;
-  margin: auto;
-
-}
-.hero-section h1 {
-  margin-top: 90px;
-}
-.names {
-  font-family: 'DM Serif Display', serif;
-  font-size: 52px;
-  line-height: 1.2;
-}
-
-.scroll-down {
-  margin-top: 40px;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-/* Card Section */
-.card-section {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 25px 20px;
-  margin-top: 25px;
-  border: 1px solid #eae2d6;
-}
-.card-section .venue-image {
-  display: flex;
-  justify-content: center;
-}
-.card-section .venue-image img {
-  width: 340px;
-  height: 300px;
-  border-radius: 10px;
-  margin: 0 auto 10px;
-  display: block;
-
-}
-.card-section h2 {
+.envelope-content h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 36px;
-  color: #5a4b41;
+
+  font-size: 55px;
+
+  font-weight: 400;
+
+  color: #76553c;
+
   margin-bottom: 10px;
 }
 
-.sub-title, .small-note {
-  font-size: 11px;
-  color: #888;
-  margin-bottom: 15px;
+.envelope-content p {
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 30px;
 }
 
-/* Coins / Scratch */
+
+/* ENVELOPE */
+
+.envelope {
+  position: relative;
+
+  width: 280px;
+  height: 180px;
+
+  margin: 0 auto 25px;
+
+  background: #d7b28d;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .2);
+}
+
+.envelope::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 0;
+  height: 0;
+
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 95px solid #c69a70;
+}
+
+.envelope::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  border-left: 140px solid #b98b60;
+  border-top: 90px solid transparent;
+  border-bottom: 90px solid transparent;
+}
+
+
+/* MUHR */
+
+.seal {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #8d5d3b;
+
+  color: #fff5e8;
+
+  font-size: 25px;
+
+  border: 3px solid #e5c09d;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, .25);
+}
+
+.open-text {
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  color: #76553c;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+#main-screen {
+  width: 100%;
+  max-width: 420px;
+
+  margin: 0 auto;
+
+  background: #f4ece1;
+
+  min-height: 100vh;
+
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, .12);
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-button {
+  position: fixed;
+
+  z-index: 100;
+
+  top: 20px;
+  right: 20px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #76553c;
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, .2);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero-section {
+  height: 500px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(30, 18, 10, .35),
+      rgba(30, 18, 10, .35)
+    ),
+    url("")
+    center / cover no-repeat;
+
+  border-radius: 0 0 30px 30px;
+}
+
+.hero-content {
+  color: white;
+
+  padding: 20px;
+}
+
+.small-title {
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+}
+
+.names {
+  font-family: 'DM Serif Display', serif;
+
+  font-size: 62px;
+
+  line-height: 1.05;
+
+  font-weight: 400;
+
+  text-shadow:
+    0 3px 10px rgba(0, 0, 0, .4);
+}
+
+.names span {
+  display: block;
+
+  font-family: 'Great Vibes', cursive;
+
+  font-size: 38px;
+
+  margin-top: 12px;
+}
+
+.scroll-text {
+  position: absolute;
+
+  bottom: 25px;
+
+  left: 0;
+  right: 0;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card-section {
+  margin: 20px 15px;
+
+  padding: 28px 20px;
+
+  background: rgba(255, 250, 243, .9);
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow:
+    0 8px 25px rgba(83, 59, 43, .1);
+}
+
+.card-section h2 {
+  font-family: 'Great Vibes', cursive;
+
+  font-size: 38px;
+
+  color: #76553c;
+
+  margin-bottom: 15px;
+
+  font-weight: 400;
+}
+
+.card-section p {
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.sub-title {
+  font-size: 11px !important;
+
+  letter-spacing: 1px;
+
+  color: #8d6b50;
+}
+
+.small-note {
+  font-size: 9px !important;
+
+  letter-spacing: 2px;
+
+  margin-top: 8px;
+
+  color: #96775d;
+}
+
+
+/* =========================
+   SANA
+========================= */
+
 .scratch-coins {
   display: flex;
+
   justify-content: center;
-  gap: 15px;
+
+  gap: 18px;
+
+  margin-top: 25px;
 }
 
 .coin {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
+
+  border: 2px solid #b89068;
+
   border-radius: 50%;
-  background: linear-gradient(135deg, #d4af37, #f3e5ab);
-  border: none;
-  font-size: 20px;
-  color: #fff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e7c49f,
+      #b98a5f
+    );
+
+  color: white;
+
+  font-size: 27px;
+
   cursor: pointer;
+
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, .15),
+    inset 0 2px 5px rgba(255,255,255,.4);
+}
+
+.coin:hover {
+  transform: scale(1.08);
+}
+
+.date-display {
+  margin-top: 25px;
+
+  animation: showDate .7s ease;
+}
+
+@keyframes showDate {
+
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
 }
 
 .date-box {
   display: flex;
+
+  align-items: center;
+
   justify-content: center;
+
   gap: 10px;
-  font-weight: 600;
-  margin: 15px 0;
+
+  margin-bottom: 15px;
 }
 
 .date-box span {
-  background: #f5efe6;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
+  width: 65px;
+  height: 65px;
 
-/* Buttons */
-.map-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
 
-.btn-map, .btn-copy {
-  flex: 1;
-  padding: 10px;
-  background: #5c6b57;
-  color: #fff;
-  text-decoration: none;
-  font-size: 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-}
+  align-items: center;
+  justify-content: center;
 
-/* Toyona */
-.toyona-card .card-info {
-  background: #f9f6f0;
-  padding: 15px;
+  flex-direction: column;
+
+  border: 1px solid #b89068;
+
   border-radius: 10px;
-  margin-top: 15px;
+
+  background: #f8eee1;
+
+  font-size: 13px;
 }
 
-.label {
-  font-size: 10px;
-  color: #888;
-}
+.date-box span:first-child {
+  font-size: 28px;
 
-.val, .card-number {
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
-/* Timer */
-.timer {
-  display: flex;
-  justify-content: space-between;
+.date-display h3 {
+  font-size: 15px;
+
+  letter-spacing: 2px;
+
+  color: #76553c;
+
+  line-height: 1.8;
+}
+
+
+/* =========================
+   MANZIL
+========================= */
+
+.venue-image img {
+  width: 340px;
+  height: 300px;
+
+  display: block;
+
+  object-fit: cover;
+
+  margin: 0 auto 15px;
+
+  border-radius: 12px;
+}
+
+.venue-name {
+  font-family: 'DM Serif Display', serif;
+
+  font-size: 23px !important;
+
+  color: #76553c;
+
+  margin-bottom: 8px;
+}
+
+.venue-info {
+  margin: 7px 0;
+
+  font-size: 12px !important;
+}
+
+.btn-map {
+  display: inline-block;
+
   margin-top: 15px;
+
+  padding: 12px 22px;
+
+  background: #76553c;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+
+  transition: .3s;
+}
+
+.btn-map:hover {
+  background: #5d402c;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 8px;
+
+  margin-top: 20px;
 }
 
 .time-box {
-  background: #f5efe6;
-  padding: 10px;
-  border-radius: 8px;
-  width: 22%;
+  padding: 13px 5px;
+
+  background: #eee0cf;
+
+  border-radius: 12px;
 }
 
 .time-box span {
-  font-size: 18px;
-  font-weight: bold;
+  display: block;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+  color: #76553c;
 }
 
-.time-box p {
-  font-size: 9px;
-  color: #777;
+.time-box small {
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+
+  padding: 35px 20px 50px;
+
+  color: #80654f;
+}
+
+footer .heart {
+  font-size: 25px;
+
+  margin-bottom: 10px;
+}
+
+footer p {
+  font-family: 'Great Vibes', cursive;
+
+  font-size: 27px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+  .hero-section {
+    height: 460px;
+  }
+
+  .names {
+    font-size: 53px;
+  }
+
+  .names span {
+    font-size: 34px;
+  }
+
+  .venue-image img {
+    width: 100%;
+    height: 270px;
+  }
+
+  .coin {
+    width: 58px;
+    height: 58px;
+  }
+
+  .date-box span {
+    width: 58px;
+    height: 58px;
+  }
+
 }
