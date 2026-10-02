@@ -252,7 +252,7 @@ a {
       rgba(30, 18, 10, .35),
       rgba(30, 18, 10, .35)
     ),
-    url("")
+    url("/assets/img/image.png")
     center / cover no-repeat;
 
   border-radius: 0 0 30px 30px;
